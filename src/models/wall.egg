@@ -1,0 +1,111 @@
+<CoordinateSystem> { Z-Up }
+
+<Comment> {
+  "dae2egg -o 'models\wall.egg' 'models\wall.dae'"
+}
+<Texture> wall_bmp {
+  wall.bmp
+  <Scalar> type { 2d }
+  <Scalar> wrapu { repeat }
+  <Scalar> wrapv { repeat }
+  <Scalar> envtype { modulate }
+  <Scalar> uv-name { UVMap }
+}
+<Material> mat1-material {
+  <Scalar> diffr { 1 }
+  <Scalar> diffg { 1 }
+  <Scalar> diffb { 1 }
+  <Scalar> ambr { 0 }
+  <Scalar> ambg { 0 }
+  <Scalar> ambb { 0 }
+  <Scalar> emitr { 0.499999910593033 }
+  <Scalar> emitg { 0.499999910593033 }
+  <Scalar> emitb { 0.499999910593033 }
+  <Scalar> specr { 0 }
+  <Scalar> specg { 0 }
+  <Scalar> specb { 0 }
+  <Scalar> shininess { 20 }
+}
+<Group> Scene {
+  <Dart> { 1 }
+  <Group> obj1 {
+    <Transform> {
+      <Matrix4> {
+        1 0 0 0
+        0 1 0 0
+        0 0 1 0
+        0 0 0 1
+      }
+    }
+    <Group> obj1-mesh {
+      <VertexPool> obj1-mesh {
+        <Vertex> 0 {
+          10 -10 0
+          <UV> UVMap { 1 0 }
+          <Normal> { 0 0 1 }
+        }
+        <Vertex> 1 {
+          10 0 0
+          <UV> UVMap { 1 1 }
+          <Normal> { 0 0 1 }
+        }
+        <Vertex> 2 {
+          0 0 0
+          <UV> UVMap { 0 1 }
+          <Normal> { 0 0 1 }
+        }
+        <Vertex> 3 {
+          3.27826001011999e-07 -10 0
+          <UV> UVMap { 0 0 }
+          <Normal> { 0 0 1 }
+        }
+        <Vertex> 4 {
+          10 -10 0
+          <UV> UVMap { 1 0 }
+          <Normal> { 0 0 1 }
+        }
+        <Vertex> 5 {
+          0 0 0
+          <UV> UVMap { 0 1 }
+          <Normal> { 0 0 1 }
+        }
+      }
+      <Polygon> {
+        <TRef> { wall_bmp }
+        <MRef> { mat1-material }
+        <VertexRef> { 0 1 2 <Ref> { obj1-mesh } }
+      }
+      <Polygon> {
+        <TRef> { wall_bmp }
+        <MRef> { mat1-material }
+        <VertexRef> { 3 4 5 <Ref> { obj1-mesh } }
+      }
+    }
+  }
+  <Group> Camera {
+    <Transform> {
+      <Matrix4> {
+        0.685920715332031 0.727676272392273 0 0
+        -0.324013501405716 0.305420786142349 0.895395576953888 0
+        0.651558220386505 -0.614170372486115 0.445271402597427 0
+        7.35889101028442 -6.92579078674316 4.95830917358398 1
+      }
+    }
+  }
+  <Group> Light {
+    <Transform> {
+      <Matrix4> {
+        -0.290864586830139 0.955171227455139 -0.0551890581846237 0
+        -0.77110081911087 -0.19988340139389 0.604524672031403 0
+        0.566393196582794 0.218391194939613 0.794672310352325 0
+        4.07624483108521 1.00545394420624 5.90386199951172 1
+      }
+    }
+  }
+}
+<Table> {
+  <Bundle> Scene {
+    <Table> "<skeleton>" {
+    }
+  }
+}
